@@ -1,0 +1,89 @@
+<html>
+
+<head>
+        <link rel="stylesheet" href="manager.css">
+        <title>Dry Cleaning Manager</title>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+        <script type="module" src="config.js"></script>
+
+
+</head>
+
+<body>
+        <div id="login-box">
+                <div class="left">
+                        <h1 id='status'> Dry Cleaning Manager Portal</h1>
+
+                        <input type="text" id="rollno" name="rollno" placeholder="Roll No" />
+                        <input type="text" id="hoodies" name="hoodies" placeholder="Hoodies" />
+                        <input type="text" id="sweater" name="sweater" placeholder="Sweater" />
+                        <input type="text" id="blanket" name="blanket" placeholder="Blanket" />
+                        <input type="text" id="others" name="others" placeholder="Others" />
+                        <input type="submit" id='submitForm' name="submitForm" value="Submit" />
+
+                </div>
+
+</body>
+
+<script type="module">
+
+        import firebase from './config.js'
+        document.getElementById("submitForm").addEventListener('click', (e) => {
+                var rollno = document.getElementById('rollno').value;
+                var hoodies = document.getElementById('hoodies').value;
+                var sweater = document.getElementById('sweater').value;
+                var blanket = document.getElementById('blanket').value;
+                var others = document.getElementById('others').value;
+                var dues = (parseInt(hoodies) + parseInt(sweater) + parseInt(blanket) + parseInt(others)) * 80;
+
+                var clothesDB = firebase.database().ref('DryCleaning/' + rollno);
+                clothesDB.set({
+                        date: getCurrentDate(),
+                        returnDate: getDateAfter7Days(),
+                        hoodies: hoodies,
+                        sweater: sweater,
+                        blanket: blanket,
+                        others: others,
+                        dues: dues
+                });
+
+
+                alert('logs added!');
+                // ...
+        })
+
+
+        function getCurrentDate() {
+                var currentDate = new Date();
+                var day = currentDate.getDate();
+                var month = currentDate.getMonth() + 1;
+                var year = currentDate.getFullYear();
+
+                day = day < 10 ? "0" + day : day;
+                month = month < 10 ? "0" + month : month;
+                year = year.toString();
+                var formattedDate = day + month + year;
+                return formattedDate;
+        }
+
+        function getDateAfter7Days() {
+                var currentDate = new Date();
+                var targetDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 7);
+
+                var day = targetDate.getDate().toString().padStart(2, '0');
+                var month = (targetDate.getMonth() + 1).toString().padStart(2, '0');
+                var year = targetDate.getFullYear().toString();
+
+                var outputDate = day + month + year;
+
+                return outputDate;
+        }
+
+
+
+
+
+</script>
+
+</html>

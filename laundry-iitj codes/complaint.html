@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <link rel="stylesheet" href="complaint.css">
+        <title>Complaints</title>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function () {
+                emailjs.init("nqEcRN7OU3katDeoV");
+            })();
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+        <script type="module" src="config.js"></script>
+        <script type="module" src="complaint.js"></script>
+</head>
+
+<body>
+    <div class="top">
+
+        <span id="left">Location:</span>
+        <span id="alter">Berm 23</span>
+        <span id="center">Call us On:</span>
+        <span id="alter">9871700289</span>
+        <span id="right">Work hours</span>
+        <span id="alter">8:00 - 16:00</span>
+
+
+
+
+    </div>
+    <div class="nav">
+        IITJ Laundary Portal
+        <a href="AboutUs.html">
+            About Us </a>
+        <a href="temp.html">
+            Homepage </a>
+        <a href="DryCleaning.html">
+            Dry Cleaning </a>
+        <a href="PreviousDeposits.html">
+            Previous Deposits</a>
+
+    </div>
+
+    <div class="start">
+        <h1>Got a complaint?</h1>
+
+        <div class="container">
+            <form action="" id="contactForm">
+                <div class="alert">Your message sent</div>
+
+                <div class="inputBox">
+                    <input type="text" id="FirstName" placeholder="Your First Name...." />
+                </div>
+
+                <div class="inputBox">
+                    <input type="text" id="LastName" placeholder="Your Last Name...." />
+                </div>
+
+                <div class="inputBox">
+                    <input type="email" id="emailid" placeholder="Your Email....." />
+                </div>
+
+                <div class="inputBox">
+                    <input type="text" id="RollNo" placeholder="Your Roll No...." />
+                </div>
+
+                <div class="inputBox">
+                    <textarea id="msgContent" cols="30" rows="10" placeholder="Enter Your Complaint"></textarea>
+                </div>
+
+                <div class="inputBox">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

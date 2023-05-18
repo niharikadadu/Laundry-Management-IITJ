@@ -1,0 +1,89 @@
+<html>
+
+<head>
+        <link rel="stylesheet" href="manager.css">
+        <title>Your Account</title>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+        <script type="module" src="config.js"></script>
+        <script type="module" src="manager.js"></script>
+
+</head>
+
+<body>
+        <div id="login-box">
+                <div class="left">
+                        <h1 id='status'> Manager </h1>
+                        <input type="text" id="rollno" name="rollno" placeholder="Roll No" />
+
+                        <input type="text" id="jacket" name="jacket" placeholder="Jacket" />
+                        <input type="text" id="tshirt" name="tshirt" placeholder="T-shirt" />
+                        <input type="text" id="pyjama" name="pyjama" placeholder="Pyjamas" />
+                        <input type="text" id="shirt" name="shirt" placeholder="Shirt" />
+                        <input type="text" id="jeans" name="jeans" placeholder="jeans" />
+
+                        <input type="submit" id='submitForm' name="submitForm" value="Submit" />
+
+                </div>
+
+</body>
+
+<script type="module">
+
+        import firebase from './config.js'
+        document.getElementById("submitForm").addEventListener('click', (e) => {
+
+                var rollno = document.getElementById('rollno').value;
+                var jacket = document.getElementById('jacket').value;
+                var tshirt = document.getElementById('tshirt').value;
+                var pyjama = document.getElementById('pyjama').value;
+                var shirt = document.getElementById('shirt').value;
+                var jeans = document.getElementById('jeans').value;
+
+                // var rollno = document.getElementById('rollno').value;
+
+                var clothesDB = firebase.database().ref('DepositLogs/' + rollno + '/' + getCurrentDate());
+                clothesDB.set({
+                        jacket: jacket,
+                        tshirt: tshirt,
+                        pyjama: pyjama,
+                        shirt: shirt,
+                        jeans: jeans,
+                });
+
+                var clothesDB = firebase.database().ref('LastDeposit/' + rollno);
+                clothesDB.set({
+                        date: getCurrentDate(),
+                        jacket: jacket,
+                        tshirt: tshirt,
+                        pyjama: pyjama,
+                        shirt: shirt,
+                        jeans: jeans,
+                });
+
+
+                alert('logs added!');
+                // ...
+        })
+
+
+        function getCurrentDate() {
+                var currentDate = new Date();
+                var day = currentDate.getDate();
+                var month = currentDate.getMonth() + 1;
+                var year = currentDate.getFullYear();
+
+                day = day < 10 ? "0" + day : day;
+                month = month < 10 ? "0" + month : month;
+                year = year.toString();
+                var formattedDate = day + month + year;
+                return formattedDate;
+        }
+
+
+
+
+
+</script>
+
+</html>

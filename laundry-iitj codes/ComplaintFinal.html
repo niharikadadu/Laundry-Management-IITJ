@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="style1.css">
+
+    <title>Complaints</title>
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+
+
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" id="contactForm">
+                    <section>
+                        <div class="inner">
+                            <div class="image-holder">
+                                <img src="forComplaint.jpg" alt="">
+                            </div>
+                            <div class="form-content">
+                                <div class="form-header">
+                                    <h3>Got a Complaint?</h3>
+                                    <h4>We are here to help you!!!</h4>
+                                </div>
+                                <p>Please fill with your details</p>
+                                <div class="form-row">
+                                    <div class="form-holder">
+                                        <input type="text" id="FirstName" placeholder="First Name" class="form-control">
+                                    </div>
+                                    <div class="form-holder">
+                                        <input type="text" id="LastName" placeholder="Last Name" class="form-control">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-row">
+                                    <div class="form-holder">
+                                        <input type="text" id="emailid" placeholder="Your Email" class="form-control">
+                                    </div>
+                                    <div class="form-holder">
+                                        <input type="text" id="RollNo" placeholder="Roll Number" class="form-control">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="inputBox">
+                                    <textarea id="msgContent" cols="40" rows="4"
+                                        placeholder="Enter Your Complaint"></textarea>
+                                </div>
+
+                                <div class="register">
+                                    <button type="submit">Submit</button>
+                                </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./Complaint.js"></script>
+</body>
+
+</html>

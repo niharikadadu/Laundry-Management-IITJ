@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Your Account</title>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+        <script type="module" src="config.js"></script>
+        <script type="module" src="account.js"></script>
+        <title>My account</title>
+</head>
+
+<body>
+        <h1>Your Account</h1>
+        <h3>Name : </h3><h4 id="name">{{value}}</h4>
+        <h3>Roll Number : </h3><h4 id="userid">{{value}}</h4>
+        <h3>hostel : </h3><h4 id="hostel">{{value}}</h4>
+        <div>
+                <img id="photo" alt="Profile photo" width="200" height="200">
+                <br>
+                <button id="change-photo-button">Change Photo</button>
+        </div>
+
+        <div id="photo-form" style="display:none;">
+                <h2>Upload New Photo</h2>
+                <form>
+                        <label for="photo">Select Photo:</label>
+                        <input type="file" id="selectphoto" name="photo"><br>
+
+                        <button type="submit" id="upload-photo-button">Upload</button>
+                        <button type="button" id="cancel-photo-button">Cancel</button>
+                </form>
+        </div>
+
+        <button id="update-password-button">Update Password</button>
+
+        <div id="password-form" style="display:none;">
+                <h2>Update Password</h2>
+                <form>
+                        <label for="current-password">Enter Current Password:</label>
+                        <input type="password" id="current-password" name="currentPassword"><br>
+
+                        <label for="new-password">Enter New Password:</label>
+                        <input type="password" id="new-password" name="newPassword"><br>
+
+                        <label for="confirm-password">Confirm New Password:</label>
+                        <input type="password" id="confirm-password" name="confirmPassword"><br>
+
+                        <button type="submit" id="update-password-submit-button">Save</button>
+                        <button type="button" id="cancel-password-button">Cancel</button>
+                </form>
+        </div>
+
+
+</body>
+
+</html>
